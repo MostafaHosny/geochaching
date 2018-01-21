@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Geocachnig Rails 
+------------------------------------
+For testing run 'rspec'
 
-Things you may want to cover:
+API's 
 
-* Ruby version
+1- create new location with secret message 
 
-* System dependencies
+Post: localhost:3000/api/v1/locations
 
-* Configuration
+body: 
+	{
+		"location":{
+		"message_attributes": {"content":"seveeneeeeeeeeeeeasesead"} ,
+		"lat" : "31.180696122" ,
+		"lng" : "36.169139291"
+ 		}
+	}
 
-* Database creation
+----------------------------------------------------------------------------------
 
-* Database initialization
+2-Query for all messages within a 100km radius around a certain position 
 
-* How to run the test suite
+Get: localhost:3000/api/v1/locations/nearby
 
-* Services (job queues, cache servers, search engines, etc.)
+params: lat=36.1806961223 & lng=36.169139292
 
-* Deployment instructions
 
-* ...
+
+-----------------------------------------------------------------------------------
+3-Query for the closest message to a certain position
+
+Get: localhost:3000/api/v1/locations/closest
+
+params: lat=36.1806961223 & lng=36.169139292
