@@ -1,6 +1,6 @@
 class Api::V1::LocationsController < ApplicationController
 
-before_action :location_params, only: [:create]
+  before_action :location_params, only: [:create]
   # before_action :set_location, only: [:nearby , :closest ]
   
   def create
@@ -13,11 +13,12 @@ before_action :location_params, only: [:create]
   end
 
   def nearby
-    @locations = @location.nearby
+    @locations = Location.nearby(params[:lat] , params[:lng])
+    render json: @locations, status: :ok
   end
 
   def closest
-    @location = @location.closest
+    @location = Location.closest(params[:lat] ,params[:lng])
     render json: @location, status: :ok
   end
 

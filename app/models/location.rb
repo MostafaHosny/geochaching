@@ -12,12 +12,13 @@ class Location < ApplicationRecord
   
   accepts_nested_attributes_for :message
   
-  def nearby(lat , lng)
-   within(100, :origin => [lat , lng])
+  def self.nearby(lat , lng)
+    byebug
+    Location.within(100, :origin => [lat ,lng])
   end
 
-  def closest(lat , lng)
-    by_distance(origin: [lat,lng]).limit(1)
+  def self.closest(lat , lng)
+    Location.by_distance(origin: [lat,lng]).limit(1)
   end
 
 end
