@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
       render json: { error: exception.message }, status: :unprocessable_entity
     end
 
-    def record_not_found(exception)
+    def record_not_found
       render json: { error: "Location not fount" }, status: 404
     end
 end

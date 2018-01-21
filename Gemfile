@@ -21,9 +21,10 @@ gem 'puma', '~> 3.7'
 gem 'active_model_serializers'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'geokit-rails', github: 'geokit/geokit-rails' 
+gem 'geokit-rails', github: 'geokit/geokit-rails'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -32,8 +33,8 @@ group :development, :test do
 end
 
 group  :test do
-  gem 'factory_bot'
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'shoulda-matchers'
   gem 'faker'
   gem 'database_cleaner'
 end
@@ -43,6 +44,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # for follow best practice we will add rubocop
+  gem 'rubocop', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
